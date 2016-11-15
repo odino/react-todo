@@ -1,7 +1,16 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Todo from './Todo'
 
 class List extends React.Component {
+  componentDidMount() {
+    this.focus(0)
+  }
+
+  focus(id) {
+    this.refs[`todo_${id}`] && this.refs[`todo_${id}`].focus()
+  }
+
   render() {
     return (
       <div>
@@ -9,8 +18,10 @@ class List extends React.Component {
           return <Todo
             visible={!!_.filter([todo], this.props.filter).length}
             id={i}
+            ref={`todo_${i}`}
             key={i}
             dispatch={this.props.dispatch}
+            focus={id => this.focus(id)}
             {...todo}
           />
         })}
@@ -19,4 +30,4 @@ class List extends React.Component {
   }
 }
 
-module.exports = List
+export default List

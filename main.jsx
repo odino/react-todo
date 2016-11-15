@@ -64,7 +64,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="flex_center container">
         <Filters {...this.state} />
         <List {...this.state} />
         <NewTodo {...this.state} />

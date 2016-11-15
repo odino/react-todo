@@ -9,12 +9,14 @@ class Filters extends React.Component {
   }
 
   render() {
+    let filtered = this.props.filter.done || false
+
     return (
-      <div>
-        <button onClick={() => this.filter({done: true})}>
+      <div className="filters flex_center flex_row">
+        <button className={filtered ? 'active' : ''} onClick={() => this.filter({done: true})}>
           Completed ({this.props.todos.filter(t => t.done).length})
         </button>
-        <button onClick={() => this.filter({})}>
+        <button className={!filtered ? 'active' : ''} onClick={() => this.filter({})}>
           Total ({this.props.todos.length})
         </button>
       </div>
@@ -22,4 +24,4 @@ class Filters extends React.Component {
   }
 }
 
-module.exports = Filters
+export default Filters

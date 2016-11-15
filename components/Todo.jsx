@@ -24,11 +24,23 @@ class Todo extends React.Component {
         id: this.props.id,
       })
     }
+
+    if (e.key === 'ArrowDown') {
+      this.props.focus(this.props.id + 1)
+    }
+
+    if (e.key === 'ArrowUp') {
+      this.props.focus(this.props.id - 1)
+    }
+  }
+
+  focus() {
+    this.refs.input.focus()
   }
 
   render() {
     return (
-        <div className={"done-" + this.props.done + " visible-" + this.props.visible}>
+        <div className={"todo done-" + this.props.done + " visible-" + this.props.visible}>
           <input
             type="checkbox"
             checked={this.props.done}
@@ -36,6 +48,7 @@ class Todo extends React.Component {
           />
           <input
             type="title"
+            ref="input"
             value={this.props.title}
             onChange={(e) => this.edit(this.props.id, e.target.value)}
             onKeyDown={(e) => this.onKeyDown(e)}
@@ -45,4 +58,4 @@ class Todo extends React.Component {
   }
 }
 
-module.exports = Todo
+export default Todo

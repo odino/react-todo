@@ -22,7 +22,7 @@ class NewTodo extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="newtodo">
         <input
           type="title"
           value={this.state.title}
@@ -35,4 +35,4 @@ class NewTodo extends React.Component {
   }
 }
 
-module.exports = NewTodo
+export default NewTodo
