@@ -13,7 +13,7 @@ class List extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="todos">
         {this.props.todos.map((todo, i) => {
           return <Todo
             visible={!!_.filter([todo], this.props.filter).length}

@@ -17,6 +17,10 @@
   margin-top: 10%;
 }
 
+.filters {
+  width: 700px;
+}
+
 .filters button {
   width: 40%;
   margin: 10px;
@@ -32,8 +36,17 @@
   opacity: 1;
 }
 
+.todos {
+  margin-top: 50px;
+  width: 450px;
+}
+
 .todo {
   margin: 10px;
+}
+
+.todo input[type="text"] {
+  width: 85%;
 }
 
 input {
@@ -43,15 +56,24 @@ input {
 }
 
 .newtodo {
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .newtodo input {
   font-size: 1.4em;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 750px) {
   .filters {
     width: 100%;
+  }
+
+  .todos {
+    margin-top: 0;
+    width: 95%;
+  }
+
+  .newtodo {
+    margin-top: 10%;
   }
 }

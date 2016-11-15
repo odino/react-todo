@@ -17,7 +17,7 @@ class Todo extends React.Component {
   }
 
   onKeyDown(e) {
-    if (e.key === "Backspace" && e.target.value === "") {
+    if ((e.key === "Backspace" || e.key === "Delete") && e.target.value === "") {
       e.preventDefault()
       this.props.dispatch({
         type: 'TODO_DELETE',
@@ -31,6 +31,15 @@ class Todo extends React.Component {
 
     if (e.key === 'ArrowUp') {
       this.props.focus(this.props.id - 1)
+    }
+
+    if (e.key === 'Enter') {
+      this.props.dispatch({
+        type: 'TODO_CREATE',
+        id: this.props.id + 1
+      })
+
+      this.props.focus(this.props.id + 1)
     }
   }
 
@@ -47,7 +56,7 @@ class Todo extends React.Component {
             onChange={() => this.check(this.props.id)}
           />
           <input
-            type="title"
+            type="text"
             ref="input"
             value={this.props.title}
             onChange={(e) => this.edit(this.props.id, e.target.value)}

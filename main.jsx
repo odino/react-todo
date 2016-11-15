@@ -22,7 +22,14 @@ function reducer(state = {}, action) {
     return {...state, todos: todos}
   case 'TODO_CREATE':
     todos = [...state.todos]
-    todos.push({done: action.done || false, title: action.title})
+    let todo = {done: action.done || false, title: action.title || ''}
+
+    if (action.id) {
+      todos.splice(action.id, 0, todo)
+    } else {
+      todos.push(todo)
+    }
+
 
     return {...state, todos: todos}
   case 'TODO_DELETE':
