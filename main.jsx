@@ -44,7 +44,7 @@ function reducer(state = {}, action) {
   }
 }
 
-let initialState = JSON.parse(localStorage.getItem('state')) || {}
+let initialState = JSON.parse(localStorage.getItem('state')) || {todos: [], filter: {}}
 let store = createStore(reducer, initialState)
 
 window.todos = {

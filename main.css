@@ -49,6 +49,10 @@
   width: 85%;
 }
 
+.done-true input {
+  text-decoration: line-through;
+}
+
 input {
   border: 0;
   font-size: 1.2em;

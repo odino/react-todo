@@ -1,4 +1,5 @@
 import React from 'react'
+import _ from 'lodash';
 
 class Filters extends React.Component {
   filter(filter) {
@@ -9,7 +10,7 @@ class Filters extends React.Component {
   }
 
   render() {
-    let filtered = this.props.filter.done || false
+    let filtered = _.get(this, 'props.filter.done', false)
 
     return (
       <div className="filters flex_center flex_row">
