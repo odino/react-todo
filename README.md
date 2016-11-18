@@ -10,7 +10,7 @@ The only kind of prerequisite is to have `webpack` installed globally:
 cd react-todo
 yarn
 webpack
-google-chrome .
+google-chrome ./index.html
 ```
 
 ## Dev
